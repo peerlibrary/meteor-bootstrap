@@ -10,7 +10,7 @@
 #   - Mac: OS X 10.6 and above
 #   - Linux: x86 and x86_64 systems
 
-
+export METEOR_TEST_UPDATE_MANIFEST="offline"
 
 # Now, on to the actual installer!
 
@@ -87,6 +87,8 @@ rmdir "${INSTALL_TMPDIR}"
 # just double-checking :)
 test -x "$HOME/.meteor/meteor"
 "$HOME/.meteor/meteor" --get-ready
+
+sed -i 's/\(export NODE_PATH.*\)/\1; export METEOR_TEST_UPDATE_MANIFEST="offline"/' "$HOME/.meteor/tools/latest/bin/meteor"
 
 echo
 echo "Meteor 0.8.3 has been installed in your home directory (~/.meteor)."
