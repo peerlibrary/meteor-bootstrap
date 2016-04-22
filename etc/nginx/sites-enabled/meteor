@@ -1,0 +1,10 @@
+server {
+	server_name meteor.peerlibrary.org;
+
+	root /meteor;
+
+	access_log /var/log/nginx/meteor_access.log;
+	error_log /var/log/nginx/meteor_error.log;
+
+	index index.txt;
+}
